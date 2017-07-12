@@ -1,0 +1,15 @@
+.about
+{
+	
+	font-size: 3em;
+	font-color:#000000;
+	padding: 20px;
+	max-width: 1200px; 
+}
+p
+{
+	font-color:#262626;
+	font-size: 16;
+	padding: 20px;
+	max-width: 1200px
+}

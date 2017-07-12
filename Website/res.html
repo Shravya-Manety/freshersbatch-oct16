@@ -1,0 +1,137 @@
+<!DOCTPYE html>
+<html>
+<head>
+	<title>Main Page</title>
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="res.js"></script>
+	<link rel="stylesheet" type="text/css" href="res.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOwmWCCp4EwB4pkH6PeeKMZjM2ijFtppw&callback=myMap"></script>
+
+	<script>
+function myMap() {
+var mapProp= {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+
+</head>
+<body style="font-family:Helvetica, sans-serif;">
+	<nav class="navbar navbar-default navbar-fixed-top">
+  		<div class="container-fluid">
+    		<div class="navbar-header">
+      		<a class="navbar-brand" href="#"><font size="3em" color="black"><b>Shravya Manety Restaurants & Cafes</b></font></a>
+    		</div>
+    		<ul class="nav navbar-nav">
+      			<li class="active"><a href="#About-start">Book a Table</a></li>
+      			<li><a href="#HH"><font size="2em" color="black">Hunger's Haven</font></a></li>
+      			<li><a href="#riv"><font size="2em" color="black">Rivera</font></a></li>
+      			<li><a href="#trn"><font size="2em" color="black">The Resder's Nest</font></a></li>
+      			<li><a href="eve.html"><font size="2em" color="black">Events in & around</font></a></li>
+      			<li><a href="recp.html"><font size="2em" color="black">Recipes</font></a></li>
+      			<li><a href="recp.html"><font size="2em" color="black">Contact Us</font></a></li>
+    		</ul>
+  		</div>
+	</nav>
+	<div>
+	<img src="restaurant1.jpg" alt="hotel" style="width:90%; max-height: 20%; padding-left: 115px">
+	</div>
+	<br>
+	<div class="layo container-fluid" style="padding-left: 20px width:500px">
+		<p style="color: white;font-size: 20px" id="About-start">Book A Table</p>
+		<hr>
+		<form>
+		  <div class="form-group ">
+      		<label for="sel1">Restaurant:</label>
+     	 <select class="form-control" id="sel1">
+        <option>Hunger's Haven</option>
+        <option>Rivera</option>
+        <option>The Resder's Nest</option>
+      	</select>
+		</div>
+  		
+  		<label for="sel2">Date:</label>
+  		<input type="date" name="date" style="color:black">
+  		<br>
+ 		<label for="sel3">Time:</label>
+  		<input type="time" name="usr_time" style="color:black">
+
+  		 <div class="form-group ">
+      		<label for="sel1">Party Size:</label>
+     	 	<select class="form-control" id="sel1">
+        	<option>1</option>
+        	<option>2</option>
+        	<option>3</option>
+        	<option>4</option>
+      		</select>
+		</div>
+		<p>For Large party sizes, drop in a mail at shravya.feastorder@gmail.com</p>
+    	<input type="checkbox" class="foo" style="color: white;padding-left: 2px"> Send email
+  			<div class="inputs">
+ 		 		<div class="input-group">
+      			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      			<input id="email" type="text" class="form-control" name="email" placeholder="shravya.feastorder@gmail.com">
+      			</div>
+			<div class="input-group">
+      			<span class="input-group-addon">Text</span>
+      			<input id="msg" type="text" class="form-control" name="msg" placeholder="Party Details">
+    		</div>
+  			</div>
+  			</form>
+         <br>
+         <br>    
+         </div> 
+ 		 <div class="row well well-lg">
+  			<div class="col-sm-8" id="HH" style="color:#4d4d4d;padding-left: 20px">
+  			<p style="text-align: left;padding-top: 100px;padding-left: 100px"><font size="20">Hunger's Haven</font></p>
+  			<p style="width:100%; height:100 px; text-align:left;font-size: 16;padding-left: 100px">Holding three Michelin-stars, Shravya’s flagship restaurant provides elegant modern Asian cuisine using the finest seasonal ingredients and employing both classic and modern techniques.</font></p></div>
+  			
+  			<div class="col-sm-4">
+  				<img class="grayscale" src="desc1.jpg" alt="Hunger's Haven" style="width:100%;height:50%;padding: 10px;margin: 1px solid white;padding-right: 50px;padding-top: 50px">
+  			</div>
+		</div>
+		<br>
+		<br>
+		 <div class="row">
+  			<div class="col-sm-4" id="riv">
+  				<img class="grayscale" src="desc2.jpg" alt="Rivera" style="width:100%;height:50%;padding: 10px;margin: 1px solid white;padding-left: 50px;padding-top: 50px">
+  			</div>
+  			<div class="col-sm-8">
+  			<p style="text-align: right;padding-top: 100px;padding-right: 500px"><font size="20">Rivera</font></p>
+  			<p style="width: 100%; height:100 px; text-align:right;font-size: 16;padding-right: 100px">There's something for everyone when it comes to chilling at <span font-weight="bold">Rivera</span>. Enjoy a breakfast classic with Scones, Malbec, Prosecco and Sunny side ups! Not to forget the warm cup of coffee ! </font></p>
+  			</div>
+		</div>
+		<br>
+		<br>
+		 <div class="row well well-lg">
+  			<div class="col-sm-8" id="trn">
+  				<p style="text-align: left;padding-top: 100px;padding-left: 100px"><font size="20">The Reader's Nest</font></p>
+  				<p style="width: 50%; height:100 px; text-align:left; font-size: 16;padding-left: 100px">Happiness is a cup of coffee and a good book!</font></p>
+  			</div>
+  			<div class="col-sm-4">
+  				<img class="grayscale" src="desc3.jpg" alt="The Reader's Nest" style="width:100%;height:50%;padding: 10px;margin: 1px solid white;padding-right: 50px;padding-top: 50px">
+  					<svg xmlns="http://www.w3.org/2000/svg" id="svgroot" viewBox="0 0 400 377" width="400" height="377">
+ 				 	<defs>
+     				<filter id="filtersPicture">
+       					<feComposite result="inputTo_38" in="SourceGraphic" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="0" k4="0" />
+       					<feColorMatrix id="filter_38" type="saturate" values="0" data-filterid="38" />
+    				</filter>
+  				</defs>
+   				</svg>
+  			</div>
+		</div>
+	</body>
+</html>

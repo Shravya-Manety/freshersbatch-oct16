@@ -125,7 +125,7 @@ body{
 .content{
    flex: 1 0 auto;
    -webkit-flex: 1 0 auto;
-   min-height: 150px;
+   min-height: 0px;
 }
 
 #myFooter{

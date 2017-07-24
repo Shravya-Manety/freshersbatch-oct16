@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>Exception Handling</TITLE>
+<SCRIPT type="text/javascript">
+var str="";
+function show_exception()
+{
+try
+{
+	alert("Welcome to JavaScript");
+}
+catch(err)
+{
+	str="There is error on page\n";
+	str+="Click ok to view the contents\n";
+	str+="Click Cancel to exit";
+	if(!confirm(str))
+	{
+		document.location.href="http://www.google.com";
+	}
+
+}
+}
+</SCRIPT>
+
+</HEAD>
+<BODY>
+<input type="button" value="Submit" onclick="show_exception()"/>
+</BODY>
+
+</HTML>

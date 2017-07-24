@@ -1,0 +1,30 @@
+
+* { background-color: green }
+
+#container{
+	overflow: scroll;
+	width: 100px;
+	height: 100px;
+	background-color: lightblue;
+}
+input{
+	margin: 100px 50px;
+	border-color: red;
+	border-width: 3px;
+	border-style: solid dashed ridge dotted;
+	padding: 10px;
+}
+
+p::first-line{
+	color: red;
+}
+
+p::selection{
+	background-color: cyan;
+}
+
+div:hover{
+	background-color: orange;
+}
+
+h3 { background-color: pink }

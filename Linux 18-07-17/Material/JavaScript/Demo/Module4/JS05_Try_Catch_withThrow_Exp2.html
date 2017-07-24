@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE>Throw Example</TITLE>
+<SCRIPT type="text/javascript">
+var num=prompt("Enter number >10","");
+function check_num()
+{
+try
+{
+	if(num<10)
+	{
+	throw ("Err1");
+	}
+	if(isNaN(num))
+	{
+	throw ("Err2");
+	}
+	
+
+}
+catch(Er)
+{	
+	if(Er=="Err1")
+	{	
+		alert("Error:Number is less than 10");
+	}
+	if(Er=="Err2")
+	{
+		alert("Error:Not a Number");
+	}		
+}
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<input type="button" value="submit" onclick="check_num()"/>
+</BODY>
+
+</HTML>

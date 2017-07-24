@@ -1,0 +1,26 @@
+<html>
+<head>
+
+<script type="text/javascript">
+function showTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+setTimeout('showTime()',500);
+
+
+}
+
+
+
+</script>
+</head>
+
+<body onload="showTime()">
+
+<div id="txt"></div>
+</body>
+</html>

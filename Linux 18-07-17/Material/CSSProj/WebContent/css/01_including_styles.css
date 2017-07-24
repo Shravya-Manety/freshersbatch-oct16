@@ -1,0 +1,11 @@
+p{
+color:gray;
+background-color: lightblue;
+}
+
+a:active{
+	color:green;
+}
+a:hover{
+	color: red;
+}

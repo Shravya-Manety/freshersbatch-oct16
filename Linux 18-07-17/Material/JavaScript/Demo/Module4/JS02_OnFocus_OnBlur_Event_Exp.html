@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<SCRIPT type="text/javascript">
+function check_OnFoucs()
+{
+	document.getElementById("123").value="";
+}
+
+function check_onBlur()
+{
+	document.getElementById("123").value="Enter Text";
+}
+</SCRIPT>
+</HEAD>
+
+<BODY>
+UserName &nbsp; <INPUT TYPE="TEXT"  id="123" value="Enter Text" onBlur="check_onBlur()" OnFocus="check_OnFoucs()" />
+</BODY>
+</HTML>

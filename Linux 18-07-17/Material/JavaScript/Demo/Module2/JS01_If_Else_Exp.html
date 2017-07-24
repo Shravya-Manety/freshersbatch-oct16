@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>Control Statements - IF-Else</TITLE>
+</HEAD>
+<BODY>
+<SCRIPT type="text/javascript">
+//Date is predefine function which retrun system date and time.
+var d = new Date();
+//extracting hour from getHours() function
+var time = d.getHours();
+if(time<12)
+{
+document.write("<B>"+"Good morning"+"</B>");
+
+}
+else if(time>=12 && time<16)
+{
+document.write("<B>"+"Good Afternoon"+"</B>");
+}
+
+else if(time>=16 && time<20)
+{
+document.write("<B>"+"Good Evening"+"</B>");
+}
+
+else
+
+{
+document.write("<B>"+"Good Night"+"</B>");
+}
+</SCRIPT>
+
+</BODY>
+
+</HTML>

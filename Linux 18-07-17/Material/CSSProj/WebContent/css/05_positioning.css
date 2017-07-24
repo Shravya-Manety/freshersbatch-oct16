@@ -1,0 +1,23 @@
+div{
+	border: 1px solid black;
+	background-color: lightblue;
+}
+
+#inner-div{
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	top: 500px;
+}
+
+#outer-div{
+	position: static;
+	width: 100px;
+	height: 100px;
+}
+
+.image { 
+	float: left;
+	width: 100px;
+	height: 100px; 
+}

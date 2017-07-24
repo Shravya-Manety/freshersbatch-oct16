@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form demo</title>
+</head>
+<body bgcolor="cyan">
+
+<form align="center" oninput="sum.value=parseInt(music_volume.value)+parseInt(video_volume.value)">
+
+<audio>
+    <source src="audio/Kalimba.mp3" />
+</audio>
+
+<br><br>
+
+
+<video width="500" height="500" controls>
+    <source src="file:///D:/Anand/Training/Master/AngularJS/AngularJS Fundamentals In 60-ish Minutes.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<br><br>
+
+Enter Name: <input type="text" name="username" id="username"
+       placeholder="4 <> 10"
+       pattern="[A-Za-z]{4,10}">
+
+<br><br>
+
+<h3>
+Kindly note that the examination will start at <mark background-color="pink">"4 pm"</mark>.
+</h3>
+
+<br><br>
+<input type="range" name="music_volume" min="0" max="10" step="1" value="1">
+<br><br>
+<input type="range" name="video_volume" min="0" max="10" step="1" value="1">
+
+<br><br>
+<header>This is header section</header>
+
+<br><br>
+<footer>This is footer section</footer>
+
+<br><br>
+
+<p> 
+       Total volume = <output name="sum" for="music_volume video_volume"></output> 
+    </p>
+
+</form>
+
+</body>
+</html>

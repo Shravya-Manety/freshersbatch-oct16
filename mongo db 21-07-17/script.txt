@@ -1,0 +1,36 @@
+start mongod --replSet myRes --logpath "c:\data\node1\1.log" --dbpath "c:\data\node1" --port 27017
+start mongod --replSet myRes --logpath "c:\data\node1\2.log" --dbpath "c:\data\node2" --port 27018
+start mongod --replSet myRes --logpath "c:\data\node1\3.log" --dbpath "c:\data\node3" --port 27019
+
+
+//right click on This PC to get the computer name
+
+rsconf = {
+           _id: "myRes",
+           members: [ { _id: 0, host: "Shravya-M:27017" } ]
+         }
+rs.initiate(rsconf)
+rs.conf()
+//it will say this is the primary node
+
+//this will add the other 2 servers as the secondary node
+rs.add("Shravya-M:27018")
+rs.add("Shravya-M:27019")
+
+//now create the db 
+use trainingDB
+//insert a value in a collection
+db.user.insert({"username":"Shravya","age":22})
+
+//now open another command prompt and connect to server 27018, 
+we need to read data from 27017 and a secondary node can only read data
+mongo --port 27018
+
+db.getMongo().setReadPref('secondary')
+
+use trainingDB
+db.user.find()
+
+
+//mongodump
+mongodump --dbpath c:\data\node1 --out c:\data\backup

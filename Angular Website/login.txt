@@ -1,0 +1,65 @@
+
+http://192.168.3.144:9000/   ---->this is to use the postman
+Registration valuesss
+{
+    "data": {
+        "userName": "shrav27",
+        "firstName": "Shravya",
+        "lastName": "Manety",
+        "email": "shravyamanety@gmail.com",
+        "phone": "12345",
+        "message": "Registration successful"
+    }
+}
+
+login part
+{
+    "data": {
+        "auth-token": "59803e648562f3fd3b7ca57d",
+        "userId": "shrav27",
+        "itemList": [
+            {
+                "id": "5976c32acd280c999c8f3751",
+                "name": "Cloths"
+            },
+            {
+                "id": "5976c32acd280c999c8f3752",
+                "name": "Furniture"
+            },
+            {
+                "id": "5976c32acd280c999c8f3753",
+                "name": "Mobile"
+            },
+            {
+                "id": "5976c32bcd280c999c8f3754",
+                "name": "Real Estate"
+            }
+        ],
+        "dateConditionList": [
+            {
+                "id": "5976c337cd280c999c8f3757",
+                "condition": "EQUALS"
+            },
+            {
+                "id": "5976c337cd280c999c8f3758",
+                "condition": "BETWEEN"
+            },
+            {
+                "id": "5976c337cd280c999c8f3759",
+                "condition": "ON/AFTER"
+            },
+            {
+                "id": "5976c337cd280c999c8f375a",
+                "condition": "AFTER"
+            },
+            {
+                "id": "5976c337cd280c999c8f375b",
+                "condition": "BEFORE"
+            },
+            {
+                "id": "5976c338cd280c999c8f375c",
+                "condition": "ON/BEFORE"
+            }
+        ]
+    }
+}

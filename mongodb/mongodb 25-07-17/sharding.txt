@@ -1,0 +1,130 @@
+mkdir c:\data\shard1\node1
+mkdir c:\data\shard1\node2
+mkdir c:\data\shard2\node1
+mkdir c:\data\shard2\node2
+mkdir c:\data\cfg1
+mkdir c:\data\cfg2
+
+start mongod --shardsvr --replSet RS_1 --logpath "c:\data\shard1\shard_1_1.log" --dbpath "c:\data\shard1\node1" --port 27001 --logappend --smallfiles --oplogSize 50
+start mongod --shardsvr --replSet RS_1 --logpath "c:\data\shard1\shard_1_2.log" --dbpath c:\data\shard1\node2 --port 27002 --logappend --smallfiles --oplogSize 50
+start mongod --shardsvr --replSet RS_2 --logpath "c:\data\shard2\shard_2_1.log" --dbpath c:\data\shard2\node1 --port 27003 --logappend --smallfiles --oplogSize 50
+start mongod --shardsvr --replSet RS_2 --logpath "c:\data\shard2\shard_2_2.log" --dbpath c:\data\shard2\node2 --port 27004 --logappend --smallfiles --oplogSize 50
+
+
+
+start mongo --port 27001
+
+rs_1_conf = {
+           _id: "RS_1",
+           members: [
+                      {
+                       _id: 0,
+                       host: "Shravya-M:27001"
+                      }
+                    ]
+         }
+
+rs.initiate(rs_1_conf)
+rs.conf()
+
+rs.add("Shravya-M:27002")
+
+
+
+
+
+start mongo --port 27003
+
+rs_2_conf = {
+           _id: "RS_2",
+           members: [
+                      {
+                       _id: 0,
+                       host: "Shravya-M:27003"
+                      }
+                    ]
+         }
+
+rs.initiate(rs_2_conf)
+rs.conf()
+
+rs.add("Shravya-M:27004")
+
+
+
+
+
+
+
+start mongod --configsvr --replSet RS_CONFIG --dbpath c:\data\cfg1 --port 27031 --logpath c:\data\cfg1\cfg1.log --logappend
+start mongod --configsvr --replSet RS_CONFIG --dbpath c:\data\cfg2 --port 27012 --logpath c:\data\cfg2\cfg2.log --logappend
+
+
+start mongo --port 27031
+
+rs_config_1_conf = {
+           _id: "RS_CONFIG",
+           members: [
+                      {
+                       _id: 0,
+                       host: "Shravya-M:27031"
+                      }
+                    ]
+         }
+
+rs.initiate(rs_config_1_conf)
+rs.conf()
+
+rs.add("Shravya-M:27012")
+
+
+
+start mongos --configdb RS_CONFIG/Shravya-M:27031,Shravya-M:27012 --logappend --logpath "c:\data\cfg1\mongos_1.log" --port 27017
+start mongos --configdb RS_CONFIG/Shravya-M:27031,Shravya-M:27012 --logappend --logpath "c:\data\cfg2\mongos_2.log" --port 27018
+
+
+
+//Connect to default mongos
+start mongo --port 27017
+
+
+
+mongos>sh.help()
+mongos>sh.addShard("RS_1/Shravya-M:27001")  //any one node is fine.
+mongos>sh.addShard("RS_2/Shravya-M:27003")  //any one node is fine.
+mongos>sh.status()
+
+mongos>use config
+mongos>show collections
+mongos>db.shards.find() //you should get list of all shards configured.
+
+//Lets shard collections now
+
+mongos>sh.help()
+mongos>db
+mongos>sh.enableSharding("xordb")
+mongos>use xordb
+
+//Hash based partitioning
+mongos>sh.shardCollection( "xordb.contacts", { name: "hashed" } )
+mongos>for(var i=0;i<1000;i++) {
+	db.contacts.insert({name: i, y: 3, z: "test         test"});
+	}
+mongos>sh.status() //Notice chunks distribution across shards. ("xordb.contacts chunks:")
+
+
+//Range based partitioning
+mongos>sh.addShardTag("RS_1","FIRST_THOUSAND")
+mongos>sh.addTagRange("xordb.people", { x: 1 }, { x: 1000 }, "FIRST_THOUSAND")
+
+mongos>sh.addShardTag("RS_2","SECOND_THOUSAND")
+mongos>sh.addTagRange("xordb.people", { x: 1001 }, { x: 2000 }, "SECOND_THOUSAND")
+
+mongos>sh.enableSharding("xordb")
+mongos>sh.shardCollection("xordb.people2", {x:1})
+
+mongos>for(i=1;i<=2000;i++) {
+	db.people2.insert({x: i, y: 3})
+	}
+See people collection document distribution across different shards.
+

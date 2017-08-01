@@ -1,0 +1,26 @@
+<div class="container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" (keyup)="0" placeholder="Search" #SearchAd >
+	</div>
+</div>
+<div>
+<table>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Action</th>
+    </tr>
+    <tr *ngFor="let adv of tableVal | SearchPipe:SearchAd.value">
+    <td>{{adv.id}}</td>    
+    <td>{{adv.Name}}</td>
+    <td>{{adv.Category}}</td>
+    <td>{{adv.Quantity}}</td>
+    <td>{{adv.Price}}</td>
+    <td><button type="button" class="btn btn-primary" (click)="this.router.navigate(['/edit',adv.id])">Edit</button></td>
+    <td><button type="button" class="btn btn-primary" (click)="productService.deleteAd(adv.id)">Delete</button></td>
+    </tr>
+</table>
+</div>

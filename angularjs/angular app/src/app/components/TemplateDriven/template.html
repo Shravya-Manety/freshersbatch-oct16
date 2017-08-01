@@ -1,0 +1,47 @@
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)" novalidate>>
+<div class="container">
+<h3>{{title}}</h3>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" [value]=name name="name" required minlength="3" class="form-control" #nameRef #nameModelRef="ngModel" ngModel>
+            <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                <div [hidden]="!nameModelRef.errors.required" >Please enter your name</div>
+                <div [hidden]="!nameModelRef.errors.minlength"> Name length should be minimum 3 characters </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category</label>
+            <select type="text" name="category" required class="form-control" #catRef #catModelRef="ngModel" ngModel>
+                <option *ngFor="let cat of categories">{{cat.name}}</option>
+               </select>
+               <div *ngIf="catModelRef.errors && catModelRef.untouched" class="alert alert-danger">
+                <div [hidden]="!catModelRef.errors.required" >Your category will be default Furniture.</div>
+             </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Quantity</label>
+            <input type="number" name="quantity" required class="form-control" #quanRef #quanModelRef="ngModel" ngModel>
+            <div *ngIf="quanModelRef.errors && quanModelRef.touched" class="alert alert-danger">
+                <div [hidden]="!quanModelRef.errors.required" >Please enter the quantity.</div>
+             </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Price</label>
+            <input type="number" name="price" required class="form-control" #priRef #priceModelRef="ngModel" ngModel>
+            <div *ngIf="priceModelRef.errors && priceModelRef.touched" class="alert alert-danger">
+                <div [hidden]="!priceModelRef.errors.required" >Please enter the price.</div>
+            </div>
+        </div>
+    </div>
+    <button [disabled]="!productForm.form.valid" (click)="displayDetails(nameRef.value, catRef.value,quanRef.value,priRef.value)" type="button" class="btn btn-primary">ADD PRODUCT</button>
+</div>
+</form>
+

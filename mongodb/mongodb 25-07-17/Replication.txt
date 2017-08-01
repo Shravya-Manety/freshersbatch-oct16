@@ -1,0 +1,13 @@
+start mongod --replSet myRes --logpath "c:\data\Node1\1.log" -dbpath "c:\data\Node1" --port 27017 
+start mongod --replSet myRes --logpath "c:\data\Node2\2.log" -dbpath "c:\data\Node2" --port 27018 
+start mongod --replSet myRes --logpath "c:\data\Node3\3.log" -dbpath "c:\data\Node3" --port 27019 
+
+
+
+rsconf = { _id: "myRes", members: [ { _id: 0, host: "Onkar-Des:27017" } ] }
+rs.initiate(rsconf)
+rs.conf()
+rs.add("Onkar-Des:27018")
+rs.add("Onkar-Des:27019")
+
+db.getMongo().setReadPref('secondary')
